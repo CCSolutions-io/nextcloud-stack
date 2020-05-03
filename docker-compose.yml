@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+
+  app-server:
+    image: ccsolutionsio/nextcloud-app:$NEXTCLOUD_VERSION
+    build:
+       context: ./app-server
+       args:
+         - NEXTCLOUD_VERSION=$NEXTCLOUD_VERSION
+
+  web:
+    image: ccsolutionsio/nextcloud-web:$NGINX_VERSION
+    build:
+       context: web
+       args:
+         - NGINX_VERSION=$NGINX_VERSION
